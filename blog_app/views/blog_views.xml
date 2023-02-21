@@ -1,0 +1,100 @@
+<odoo>
+  <data>
+
+    <!-- Tree view -->
+    <record id="blog_app_blog_view_tree" model="ir.ui.view">
+      <field name="name">blog.app.blog.view.tree</field>
+      <field name="model">blog_app.blog</field>
+      <field name="arch" type="xml">
+        <tree string="Blog">
+          <field name="name" />
+          <field name="content" />
+          <field name="author_id" />
+          <field name="date" />
+          <field name="published" />
+          <field name="state" />
+        </tree>
+      </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="blog_app_blog_view_form" model="ir.ui.view">
+      <field name="name">blog.app.blog.view.form</field>
+      <field name="model">blog_app.blog</field>
+      <field name="arch" type="xml">
+        <form string="Blog">
+          <header>
+            <button name="action_confirm" string="Confirm" type="object" states="draft" />
+            <button name="action_approve" string="Approve" type="object" states="confirm"
+              class="oe_highlight" />
+            <field name="state" widget="statusbar" />
+          </header>
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                <label for="name"></label>
+                <field name="name" />
+              </h1>
+            </div>
+            <group>
+              <group>
+                <field name="content" />
+                <field name="author_id" />
+              </group>
+              <group>
+                <field name="date" />
+                <field name="published" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="blog_app_blog_view_search" model="ir.ui.view">
+      <field name="name">blog.app.blog.view.search</field>
+      <field name="model">blog_app.blog</field>
+      <field name="arch" type="xml">
+        <search string="Blog">
+          <field name="name" />
+          <field name="author_id" />
+          <filter name="filter_by_state" string="By State" domain="[]"
+            context="{'group_by': 'state'}" />
+        </search>
+      </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="blog_app_blog_action" model="ir.actions.act_window">
+      <field name="name">Blog</field>
+      <field name="res_model">blog_app.blog</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="help" type="html">
+        <p class="oe_no_content_create">Click to create a new blog</p>
+      </field>
+    </record>
+
+    <!-- menu -->
+    <menuitem
+      id="blog_app.blog_menu"
+      name="Blog"
+      sequence="10" />
+
+    <menuitem
+      id="blog_app.blog_menu_child"
+      name="Blog"
+      parent="blog_app.blog_menu"
+      sequence="10" />
+
+    <menuitem
+      id="blog_app.blog_menu_action"
+      name="Blogs"
+      action="blog_app_blog_action"
+      parent="blog_menu_child"
+      sequence="10" />
+
+  </data>
+</odoo>
