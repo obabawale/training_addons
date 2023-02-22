@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="blog_xml_1" model="blog_app.blog">
+            <field name="name">Blog from xml</field>
+            <field name="content">Blog from my xml file</field>
+            <field name="author_id" eval="3" />
+            <field name="date" eval="((datetime.now().date()).strftime('%Y-%m-%d'))" />
+            <field name="published">False</field>
+            <field name="state">draft</field>
+        </record>
+
+        <record id="blog_xml_2" model="blog_app.blog">
+            <field name="content">Blog from Xml 2</field>
+            <field name="author_id" eval="4" />
+            <field name="date" eval="((datetime.now().date()).strftime('%Y-%m-%d'))" />
+            <field name="published">False</field>
+            <field name="state">draft</field>
+        </record>
+
+        <record id="blog_xml_3" model="blog_app.blog">
+            <field name="name">Blog from Xml 3</field>
+            <field name="content">Blog from Xml 3</field>
+            <field name="author_id" eval="4" />
+            <field name="date" eval="((datetime.now().date()).strftime('%Y-%m-%d'))" />
+            <field name="published">False</field>
+            <field name="state">draft</field>
+        </record>
+
+    </data>
+
+
+</odoo>

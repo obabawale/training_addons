@@ -22,6 +22,8 @@
     'data': [
         'security/ir.model.access.csv',
         'views/blog_views.xml',
+        'data/blog_app.blog.csv',
+        'data/blog_app_data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -2,6 +2,7 @@
 
 from datetime import date
 from odoo import models, fields
+from odoo.exceptions import UserError
 
 
 class Blog(models.Model):
@@ -32,3 +33,10 @@ class Blog(models.Model):
 
     def action_approve(self):
         self.state = 'approve'
+
+    def write(self, vals):
+        for rec in self:
+            if rec.state == 'approve':
+                raise UserError(
+                    "you cannot modify a record that is not in draft state!")
+            return super().write(vals)

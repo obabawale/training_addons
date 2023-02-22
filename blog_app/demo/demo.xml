@@ -1,30 +1,38 @@
 <odoo>
-    <data>
-<!--
-          <record id="object0" model="blog_app.blog_app">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
-          </record>
+  <data>
 
-          <record id="object1" model="blog_app.blog_app">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
-          </record>
+    <record id="author_1" model="res.partner">
+      <field name="name">Author 1</field>
+    </record>
 
-          <record id="object2" model="blog_app.blog_app">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
-          </record>
+    <record id="author_2" model="res.partner">
+      <field name="name">Author 2</field>
+    </record>
 
-          <record id="object3" model="blog_app.blog_app">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
+    <record id="demo_blog_1" model="blog_app.blog">
+      <field name="name">Blog from xml</field>
+      <field name="content">Blog from my xml file</field>
+      <field name="author_id" ref="blog_app.author_1" />
+      <field name="date" eval="((datetime.now().date()).strftime('%Y-%m-%d'))" />
+      <field name="published">False</field>
+      <field name="state">draft</field>
+    </record>
 
-          <record id="object4" model="blog_app.blog_app">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
-    </data>
+    <record id="demo_blog_2" model="blog_app.blog">
+      <field name="content">Blog from Xml 2</field>
+      <field name="author_id" ref="blog_app.author_1" />
+      <field name="date" eval="((datetime.now().date()).strftime('%Y-%m-%d'))" />
+      <field name="published">False</field>
+      <field name="state">draft</field>
+    </record>
+
+    <record id="demo_blog_3" model="blog_app.blog">
+      <field name="name">Blog from Xml 3</field>
+      <field name="content">Blog from Xml 3</field>
+      <field name="author_id" ref="blog_app.author_2" />
+      <field name="date" eval="((datetime.now().date()).strftime('%Y-%m-%d'))" />
+      <field name="published">False</field>
+      <field name="state">draft</field>
+    </record>
+  </data>
 </odoo>
