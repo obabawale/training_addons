@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+blog_app.access_blog_app_blog_app_manager,blog_app.blog_app_manager,blog_app.model_blog_app_blog,blog_app.group_manager,1,1,1,0

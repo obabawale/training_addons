@@ -28,7 +28,9 @@ class Blog(models.Model):
     When record is approved for publishing by a manager, it is moved to 'Approved' state
     """)
 
-    def action_confirm(self):
+    def action_confirm(self, name=None):
+        if name:
+            print("Name passed in is %s" % name)
         self.state = 'confirm'
 
     def action_approve(self):
