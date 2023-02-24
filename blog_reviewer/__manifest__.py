@@ -15,10 +15,14 @@
     'category': 'Uncategorized',
     'version': '0.1',
 
-    'depends': ['blog_app'],
+    'depends': [
+        'web',
+        'blog_app'
+    ],
 
     'data': [
         'security/ir.model.access.csv',
         'views/blog_views.xml',
+        'reports/blog_reports.xml',
     ],
 }

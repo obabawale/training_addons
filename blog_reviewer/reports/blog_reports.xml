@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- View that will display our report -->
+        <template id="blog_report_pdf">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <t t-foreach="docs" t-as="blog">
+                            <div class="container">
+                                <div class="row">
+                                    <h2>
+                                        <span>Report for: </span>
+                                        <t t-esc="blog.name" />
+                                    </h2>
+                                    <div class="oe_separator" />
+                                </div>
+                                <div class="row">
+                                    <h3>
+                                        <p>
+                                            <t t-esc="blog.content" />
+                                        </p>
+                                    </h3>
+                                </div>
+                                <div class="row">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Author</th>
+                                                <th>Reviewer</th>
+                                                <th>Date</th>
+                                                <th>Published?</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <t t-esc="blog.author_id.name" />
+                                                </td>
+                                                <td>
+                                                    <t t-esc="blog.reviewer_id.name" />
+                                                </td>
+                                                <td>
+                                                    <t t-esc="blog.date" />
+                                                </td>
+                                                <td>
+                                                    <t t-esc="blog.published" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <!-- Action that calls the report -->
+        <record id="blog_app_blog_action" model="ir.actions.report">
+            <field name="name">Blog</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="model">blog_app.blog</field>
+            <field name="report_name">blog_reviewer.blog_report_pdf</field>
+            <field name="report_file">blog_reviewer.blog_report_pdf</field>
+            <field name="binding_model_id" ref="blog_app.model_blog_app_blog" />
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>
